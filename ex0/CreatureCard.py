@@ -5,23 +5,26 @@ from ex0.Card import Card
 class CreatureCard(Card):
     """
     クリーチャーカード
-    攻撃力と体力とタイプの属性を持つ
-    戦闘時処理のattack_targetメソッドを持つ
+    ユニーク属性
+        攻撃力
+        体力
+        タイプ
+
+    ユニークメソッド
+        attack_target(self, target: Card) -> dict:
     """
 
-    def __init__(self, creature_data: dict | None):
+    def __init__(self,
+                 name: str,
+                 cost: int,
+                 rarity: str,
+                 attack: int,
+                 health: int):
         """
-        クリーチャー独自のパラメータを付与する
+        クリーチャー初期化
+        攻撃力と体力のパラメータを持つ
         """
 
-        creature_data = creature_data or {}
-        name = creature_data["name"]
-        cost = creature_data["cost"]
-        rarity = creature_data["rarity"]
-        attack = creature_data["attack"]
-        health = creature_data["health"]
-
-        # -attackとhealthの検証
         self.validate(attack, health)
         super().__init__(name, cost, rarity)
         self.info['attack'] = attack

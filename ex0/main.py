@@ -20,8 +20,12 @@ def main() -> None:
         generator = CardGenerator()
 
         # 2.Fire Dragon（クリーチャー）を作成
-        fire_dragon = CreatureCard(generator.get_creature('Fire Dragon'))
-        goblin_warrior = CreatureCard(generator.get_creature("Goblin Warrior"))
+        creature = generator.get_creature('Fire Dragon')
+        assert creature is not None
+        fire_dragon = CreatureCard(*creature.values())
+        creature = generator.get_creature('Goblin Warrior')
+        assert creature is not None
+        goblin_warrior = CreatureCard(*creature.values())
 
         # 3.クリーチャー情報を出力
         print(f"CreatureCard Info:\n{fire_dragon.get_card_info()}")
