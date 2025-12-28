@@ -20,6 +20,7 @@ class ArtifactCard(Card):
         super().__init__(name, cost, rarity)
         self.info['durability'] = durability
         self.info['effect'] = effect
+        self.info['type'] = "artifact"
 
     def play(self, game_state: dict) -> dict:
         """

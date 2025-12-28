@@ -6,6 +6,7 @@ from ex0.CreatureCard import CreatureCard
 def main() -> None:
     """
     カードゲームDEMO
+    カード作成パート
     """
 
     print()
@@ -51,6 +52,8 @@ def main() -> None:
 
     except ValueError as e:
         print(f"ValueError: {e}")
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":

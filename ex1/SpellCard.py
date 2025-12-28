@@ -20,6 +20,7 @@ class SpellCard(Card):
 
         super().__init__(name, cost, rarity)
         self.info['effect_type'] = effect_type
+        self.info['type'] = "spell"
 
     def play(self, game_state: dict) -> dict:
         """

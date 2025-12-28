@@ -29,7 +29,7 @@ class CreatureCard(Card):
         super().__init__(name, cost, rarity)
         self.info['attack'] = attack
         self.info['health'] = health
-        self.info['type'] = "Creature"
+        self.info['type'] = "creature"
 
     def play(self, game_state: dict) -> dict:
         """
@@ -55,8 +55,7 @@ class CreatureCard(Card):
                 'damage_dealt': self.info['attack'],
                 'combat_resolved': result}
 
-    @staticmethod
-    def validate(attack: int, helth: int) -> None:
+    def validate(self, attack: int, helth: int) -> None:
         """
         attackとhealthが正の整数であることを検証する
         """
