@@ -55,15 +55,15 @@ class CreatureCard(Card):
                 'damage_dealt': self.info['attack'],
                 'combat_resolved': result}
 
-    def validate(self, attack: int, helth: int) -> None:
+    def validate(self, attack: int, health: int) -> None:
         """
         attackとhealthが正の整数であることを検証する
         """
 
-        values = [attack, helth]
+        values = [attack, health]
         for value in values:
             if value < 1:
-                raise ValueError(f"{value.__str__} "
+                raise ValueError(f"{value} "
                                  f"is not a positive integer ({value})")
 
 

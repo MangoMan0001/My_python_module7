@@ -42,8 +42,6 @@ class TournamentCard(Card, Combatable, Rankable):
         レートを返す
         """
 
-        gap = self.wins - self.losees
-        self.rating += gap * 10
         return self.rating
 
     def get_tournament_stats(self) -> dict:
@@ -70,6 +68,7 @@ class TournamentCard(Card, Combatable, Rankable):
         """
 
         self.wins += wins
+        self.rating += wins * 10
 
     def update_losses(self, losses: int) -> None:
         """
@@ -77,7 +76,16 @@ class TournamentCard(Card, Combatable, Rankable):
         """
 
         self.losees += losses
+        self.rating -= losses * 10
+
+    def defend(self, incoming_damage: int) -> dict:
+        """TournamentCardは防御計算を行わないため、そのまま返す"""
+        return {}
+
+    def get_combat_stats(self) -> dict:
+        """TournamentCardでは詳細は不要"""
+        return {}
 
 
-if __name__ == "__mani__":
+if __name__ == "__main__":
     pass

@@ -59,10 +59,11 @@ class EliteCard(Card, Combatable, Magical):
         defense = self.info['defense']
         if defense <= incoming_damage:
             health -= (incoming_damage - defense)
-        if health:
+        if 0 < health:
             result = True
         else:
             result = False
+        self.info['health'] = health
         return {'defender': self.info['name'],
                 'damage_taken': incoming_damage,
                 'damage_blocked': self.info['defense'],
@@ -73,7 +74,10 @@ class EliteCard(Card, Combatable, Magical):
         戦闘状況を返す
         """
 
-        return {}
+        return {'health': self.info.get('health'),
+                'attack': self.info.get('attack'),
+                'status':
+                'alive' if self.info.get('health', 0) > 0 else 'dead'}
 
     def cast_spell(self, spell_name: str, targets: list) -> dict:
         """
@@ -110,7 +114,7 @@ class EliteCard(Card, Combatable, Magical):
         values = [attack, helth]
         for value in values:
             if value < 1:
-                raise ValueError(f"{value.__str__} "
+                raise ValueError(f"{value} "
                                  f"is not a positive integer ({value})")
 
 

@@ -38,7 +38,7 @@ class Card(ABC):
         召喚にマナが足りるかどうかでbool値を返す
         """
 
-        if self.info['cost'] < available_mana:
+        if self.info['cost'] <= available_mana:
             return True
         return False
 

@@ -29,7 +29,7 @@ class ArtifactCard(Card):
 
         return {'card_played': self.info['name'],
                 'mana_used': self.info['cost'],
-                'effect': 'Permanent: +1 mana per turn'}
+                'effect': self.info['effect']}
 
     def activate_ability(self) -> dict:
         """

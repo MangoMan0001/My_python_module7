@@ -29,11 +29,11 @@ class Deck:
         デッキからカードを削除する
         """
 
-        try:
-            self.deck.remove(card_name)
-            return True
-        except Exception:
-            return False
+        for card in self.deck:
+            if card == card_name:
+                self.deck.remove(card)
+                return True
+        return False
 
     def shuffle(self) -> None:
         """
@@ -54,6 +54,8 @@ class Deck:
         デッキの情報を取得する
         """
 
+        if not self.deck:
+            return {'total_cards': 0, 'avg_cost': 0}
         counts = Counter(card.info['type'] for card in self.deck)
         avg = sum(card.info['cost'] for card in self.deck) / len(self.deck)
         counts['avg_cost'] = math.ceil(avg)

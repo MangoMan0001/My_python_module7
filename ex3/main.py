@@ -9,16 +9,22 @@ def main() -> None:
     ゲームエンジンDEMO
     """
 
-    engine = GameEngine()
+    try:
+        engine = GameEngine()
 
-    engine.configure_engine(FantasyCardFactory(), AggressiveStrategy())
+        engine.configure_engine(FantasyCardFactory(), AggressiveStrategy())
 
-    report = engine.simulate_turn()
-    for key, value in report.items():
-        print(f"{key}: {value}")
-    print()
+        report = engine.simulate_turn()
+        for key, value in report.items():
+            print(f"{key}: {value}")
+        print()
 
-    print("Abstract Factory + Strategy Pattern: Maximum flexibility achieved!")
+        print("Abstract Factory + Strategy "
+              "Pattern: Maximum flexibility achieved!")
+    except ValueError as e:
+        print(f"ValueError: {e}")
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":

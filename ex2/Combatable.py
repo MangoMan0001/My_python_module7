@@ -15,6 +15,7 @@ class Combatable(ABC):
 
         pass
 
+    @abstractmethod
     def defend(self, incoming_damage: int) -> dict:
         """
         防御抽象メソッド
@@ -22,6 +23,7 @@ class Combatable(ABC):
 
         pass
 
+    @abstractmethod
     def get_combat_stats(self) -> dict:
         """
         戦闘状況を返す

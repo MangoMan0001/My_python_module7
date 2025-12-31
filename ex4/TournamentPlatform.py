@@ -71,7 +71,7 @@ class TournamentPlatform:
         sorted_card = sorted(self.cards.values(), key=get_rating, reverse=True)
         for i, card in enumerate(sorted_card):
             for key, value in card.get_rank_info().items():
-                board = f"{i}. {card.info['name']} - {key}{value}"
+                board = f"{i + 1}. {card.info['name']} - {key}{value}"
             leaderboard.append(board)
 
         return leaderboard

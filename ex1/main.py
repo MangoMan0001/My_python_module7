@@ -42,7 +42,7 @@ def main() -> None:
         print(deck.get_deck_stats())
         print()
 
-        # 3.「俺のターン、ドロー!」
+        # 3.「私のターン、ドロー!」
         print("Drawing and playing cards:")
         print()
 
